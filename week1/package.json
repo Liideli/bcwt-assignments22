@@ -1,14 +1,18 @@
 {
-  "name": "package",
-  "version": "1.0.0",
-  "description": "",
+  "name": "week1",
+  "version": "0.0.1",
+  "description": "example node ap",
   "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.21"
-  }
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "nodemon script.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Liideli",
+  "license": "ISC"
 }

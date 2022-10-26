@@ -1,5 +1,5 @@
 # BCWT Assignment demo code
 
-Assignment 1
+Assignments
 
 ## 

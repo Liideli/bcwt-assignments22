@@ -24,7 +24,7 @@ app.get("/test", (request, response) => {
     title: "Pug test page",
     header1: "Pug test page",
     header2: "Counter",
-    exampleText: "PAge requested " + requestCounter + "times."
+    exampleText: "Page requested " + requestCounter + " times."
     });
 });
 

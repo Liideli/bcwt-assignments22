@@ -7,6 +7,11 @@ const users = userModel.users;
 
 
 const getUsers = (req, res) => {
+  // remove password property from all user items in the array
+  users.map(user => {
+    delete user.password;
+    return user;
+  });
   res.json(users);
 }
 
@@ -14,6 +19,7 @@ const getUser = (req, res) => {
     // Choose only one object with matching id
   const user = users.filter(user => req.params.userId == user.id)[0];
   if (user) {
+    delete user.password;
     res.json(user);
   }
   else {

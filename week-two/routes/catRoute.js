@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const catController = require('../controllers/catController');
 
+
 router.get('/', catController.getCats);
 
 router.get('/:catId', catController.getCat);

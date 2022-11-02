@@ -32,9 +32,12 @@ const modifyUser = (req, res) => {
 };
 
 const createUser = (req, res) => {
-  
+  //console.log(req.body);
+  const userInfo = `username: ${req.body.name}, email: ${req.body.name}`;
+  res.send('Adding user ' + userInfo);
+  // TODO: add new user to DB
 };
-
+  
 const deleteUser = (req, res) => {
   
 };

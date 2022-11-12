@@ -20,7 +20,16 @@ const getUser = async (req, res) => {
 };
 
 const modifyUser = (req, res) => {
-  
+  const user = req.body;
+  if (req.params.catId) {
+    user.id = req.params.catId;
+  }
+  const result = await catModel.updateCatById(user, res);
+  if (result.affectedRows > 0) {
+    res.json({message: 'cat modified: ' + user.id});
+  } else {
+    res.status(404).json({message: 'nothing changed'});
+  }
 };
 
 const createUser = async (req, res) => {
@@ -31,7 +40,13 @@ const createUser = async (req, res) => {
 };
   
 const deleteUser = (req, res) => {
-  
+  const result = await catModel.deleteCatById(req.params.catId, res);
+  console.log('cat deleted', result)
+  if (result.affectedRows > 0) {
+    res.json({message: 'cat deleted'});
+  } else {
+    res.status(404).json({message: 'cat was already deleted'});
+  }
 };
 
 module.exports = {

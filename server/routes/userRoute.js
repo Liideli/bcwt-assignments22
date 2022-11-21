@@ -12,8 +12,11 @@ router.get('/', userController.getUsers)
     body('email').isEmail().normalizeEmail(), 
     body('passwd').isLength({min: 8}).trim(), 
     userController.createUser)
-  .put('/', userController.modifyUser)
-  // TODO: add validators too
+  .put('/',
+    body('name').isLength({min: 3}).trim().escape(), 
+    body('email').isEmail().normalizeEmail(), 
+    body('passwd').isLength({min: 8}).trim(), 
+    userController.modifyUser)
   .delete('/', userController.deleteUser);
 
 module.exports = router;

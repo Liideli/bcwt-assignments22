@@ -30,8 +30,18 @@ router.get('/', catController.getCats)
     body('weight').isFloat({min: 0.1, max: 30}),
     body('owner').isInt({min: 1}),
     catController.createCat)
-  .put('/', catController.modifyCat) // TODO: add validators
-  .put('/:catId', catController.modifyCat) // TODO: add validators
+  .put('/',
+    body('name').isAlphanumeric().trim().escape(),
+    body('birthdate').isDate(),
+    body('weight').isFloat({min: 0.1, max: 30}),
+    body('owner').isInt({min: 1}),
+    catController.modifyCat)
+  .put('/:catId', 
+    body('name').isAlphanumeric().trim().escape(),
+    body('birthdate').isDate(),
+    body('weight').isFloat({min: 0.1, max: 30}),
+    body('owner').isInt({min: 1}),
+    catController.modifyCat)
   .delete('/:catId', catController.deleteCat);
 
 module.exports = router;

@@ -26,7 +26,7 @@ const modifyUser = (req, res) => {
   if (req.params.catId) {
     user.id = req.params.catId;
   }
-  const result = await catModel.updateCatById(user, res);
+  const result = await userModel.updateUserById(user, res);
   if (result.affectedRows > 0) {
     res.json({message: 'cat modified: ' + user.id});
   } else {
@@ -69,5 +69,5 @@ module.exports = {
   getUser,
   modifyUser,
   createUser,
-  deleteUser
+  deleteUser,
 };

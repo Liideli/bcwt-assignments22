@@ -1,5 +1,5 @@
 # BCWT Assignment demo code
 
-Assignments
+Assignments by Roope Laine
 
 ## 

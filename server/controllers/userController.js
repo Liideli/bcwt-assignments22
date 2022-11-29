@@ -21,19 +21,6 @@ const getUser = async (req, res) => {
   }
 };
 
-const modifyUser = (req, res) => {
-  /*const user = req.body;
-  if (req.params.catId) {
-    user.id = req.params.catId;
-  }
-  const result = await userModel.updateUserById(user, res);
-  if (result.affectedRows > 0) {
-    res.json({message: 'cat modified: ' + user.id});
-  } else {
-    res.status(404).json({message: 'nothing changed'});
-  }*/
-};
-
 const createUser = async (req, res) => {
   console.log('Creating a new user:', req.body);
   const newUser = req.body;
@@ -54,14 +41,27 @@ const createUser = async (req, res) => {
   }
 };
   
-const deleteUser = (req, res) => {
-  /*const result = await catModel.deleteCatById(req.params.catId, res);
-  console.log('cat deleted', result)
+const modifyUser = async(req, res) => {
+  const user = req.body;
+  if (req.params.userId) {
+      user.id = req.params.userId;
+  }
+  const result = await userModel.updateUserById(user, res);
   if (result.affectedRows > 0) {
-    res.json({message: 'cat deleted'});
+      res.json({message: 'user modified: ' + user.id});
   } else {
-    res.status(404).json({message: 'cat was already deleted'});
-  }*/
+      res.status(404).json({message:'nothing changed'});
+  }
+};
+
+const deleteUser = async (req, res) => {
+    const result = await userModel.deleteUserById(req.params.userId, res);
+    console.log('user deleted', result);
+    if (result.affectedRows > 0) {
+        res.json({message:'user deleted'});
+    } else {
+        res.status(404).json({message: 'user was already deleted'});
+    }
 };
 
 const checkToken = (req, res) => {

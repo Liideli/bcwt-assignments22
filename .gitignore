@@ -1,6 +1,6 @@
 node_modules/
-week-two/uploads/*
-!week-two/uploads/.gitkeep
-week-two/thumbnails/*
-!week-two/thumbnails/.gitkeep
+server/uploads/*
+!server/uploads/.gitkeep
+server/thumbnails/*
+!server/thumbnails/.gitkeep
 .env
